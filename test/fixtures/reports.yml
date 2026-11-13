@@ -4,7 +4,7 @@ one:
   user: one
   town: one
   seen_at: 2026-11-13 02:51:05
-  ear_tip: MyString
+  ear_tip: left
   trouble: MyString
   description: MyText
   photo: MyString
@@ -12,14 +12,13 @@ one:
   gps_longitude: 1.5
   reported_latitude: 1.5
   reported_longitude: 1.5
-  status: MyString
-  reject_reason: MyString
+  status: pending
 
 two:
   user: two
   town: two
   seen_at: 2026-11-13 02:51:05
-  ear_tip: MyString
+  ear_tip: none
   trouble: MyString
   description: MyText
   photo: MyString
@@ -27,5 +26,4 @@ two:
   gps_longitude: 1.5
   reported_latitude: 1.5
   reported_longitude: 1.5
-  status: MyString
-  reject_reason: MyString
+  status: approved
