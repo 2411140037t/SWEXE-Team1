@@ -6,7 +6,7 @@ one:
   seen_at: 2026-11-13 02:51:05
   ear_tip: MyString
   trouble: MyString
-  descripion: MyText
+  description: MyText
   photo: MyString
   gps_latitude: 1.5
   gps_longitude: 1.5
@@ -21,7 +21,7 @@ two:
   seen_at: 2026-11-13 02:51:05
   ear_tip: MyString
   trouble: MyString
-  descripion: MyText
+  description: MyText
   photo: MyString
   gps_latitude: 1.5
   gps_longitude: 1.5

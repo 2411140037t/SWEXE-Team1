@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_11_13_043905) do
+ActiveRecord::Schema[8.1].define(version: 2026_11_13_044227) do
   create_table "reports", force: :cascade do |t|
     t.datetime "seen_at"
     t.string "ear_tip"
     t.string "trouble"
-    t.text "descripion"
+    t.text "description"
     t.string "photo"
     t.float "gps_latitude"
     t.float "gps_longitude"
