@@ -1,4 +1,4 @@
-class Staff::ReportController < ApplicationController
+class Staff::ReportController < Staff::BaseController
   def index
     # TODO: 職員用の報告一覧ページ
   end

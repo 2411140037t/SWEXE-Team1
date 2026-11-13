@@ -1,4 +1,4 @@
-class Staff::TownController < ApplicationController
+class Staff::TownController < Staff::BaseController
   def index
     # TODO: 職員用の町別集計一覧ページ
   end

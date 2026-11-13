@@ -1,13 +1,13 @@
 require "test_helper"
 
 class Staff::ReportControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
+  test "should redirect index to login when not logged in" do
     get staff_reports_url
-    assert_response :success
+    assert_redirected_to login_url
   end
 
-  test "should get show" do
+  test "should redirect show to login when not logged in" do
     get staff_report_url(reports(:one))
-    assert_response :success
+    assert_redirected_to login_url
   end
 end
