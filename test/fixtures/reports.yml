@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  seen_at: 2026-11-13 02:51:05
+  ear_tip: MyString
+  trouble: MyString
+  descripion: MyText
+  photo: MyString
+  gps_latitude: 1.5
+  gps_longitude: 1.5
+  reported_latitude: 1.5
+  reported_longitude: 1.5
+  status: MyString
+  reject_reason: MyString
+
+two:
+  seen_at: 2026-11-13 02:51:05
+  ear_tip: MyString
+  trouble: MyString
+  descripion: MyText
+  photo: MyString
+  gps_latitude: 1.5
+  gps_longitude: 1.5
+  reported_latitude: 1.5
+  reported_longitude: 1.5
+  status: MyString
+  reject_reason: MyString
