@@ -7,7 +7,6 @@ one:
   ear_tip: left
   trouble: MyString
   description: MyText
-  photo: MyString
   gps_latitude: 1.5
   gps_longitude: 1.5
   reported_latitude: 1.5
@@ -21,7 +20,6 @@ two:
   ear_tip: none
   trouble: MyString
   description: MyText
-  photo: MyString
   gps_latitude: 1.5
   gps_longitude: 1.5
   reported_latitude: 1.5
