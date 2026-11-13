@@ -1,14 +1,41 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # App
+  root "app#index"
+  get "app/index" # /
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  # User
+  get "signup", to: "user#new" # /signup
+  post "signup", to: "user#create"# /signup
+
+  # Session
+  get "login", to: "session#new" # /login
+  post "login", to:  "session#create" # /login
+  delete "logout", to: "session#destroy" # /logout
+
+  # Report
+  get "report", to: "report#index", as: :reports # /report
+  get "report/new", to: "report#new", as: :new_report # /report/new
+  post "report", to: "report#create", as: :post_report # /report
+  get "report/:id", to: "report#show", as: :report # /report/:id
+  get "report/:id/edit", to: "report#edit", as: :edit_report # /report/:id/edit
+  patch "report/:id", to: "report#update" # /report/:id
+  delete "report/:id", to: "report#destroy" # /report/:id
+
+  # Ranking
+  get "ranking/index" # /ranking
+
+  # Other
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
-  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
+  # @Staff
+  namespace :staff do
+    # Report
+    get "report", to: "report#index", as: :reports # /staff/report
+    get "report/:id", to: "report#show", as: :report # /staff/report/:id
+    patch "report/:id", to: "report#update" # /staff/report/:id
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+    # Town
+    get "town", to: "town#index", as: :towns # /staff/town
+    get "town/:id", to: "town#show", as: :town # /staff/town/:id
+  end
 end
