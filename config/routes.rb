@@ -30,12 +30,12 @@ Rails.application.routes.draw do
   # @Staff
   namespace :staff do
     # Report
-    get "report", to: "report#index" # /staff/report
-    get "report/:id", to: "report#show" # /staff/report/:id
+    get "report", to: "report#index", as: :reports # /staff/report
+    get "report/:id", to: "report#show", as: :report # /staff/report/:id
     patch "report/:id", to: "report#update" # /staff/report/:id
 
     # Town
-    get "town", to: "town#index" # /staff/town
-    get "town/:id", to: "town#show" # /staff/town/:id
+    get "town", to: "town#index", as: :towns # /staff/town
+    get "town/:id", to: "town#show", as: :town # /staff/town/:id
   end
 end

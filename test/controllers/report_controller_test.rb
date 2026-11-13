@@ -2,22 +2,22 @@ require "test_helper"
 
 class ReportControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get report_index_url
+    get reports_url
     assert_response :success
   end
 
   test "should get new" do
-    get report_new_url
+    get new_report_url
     assert_response :success
   end
 
-  test "should get create" do
-    get report_create_url
+  test "should post create" do
+    post reports_url
     assert_response :success
   end
 
   test "should get show" do
-    get report_show_url
+    get report_url(reports(:one))
     assert_response :success
   end
 end
