@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_11_13_044227) do
+ActiveRecord::Schema[8.1].define(version: 2026_11_13_045434) do
   create_table "reports", force: :cascade do |t|
     t.datetime "seen_at"
     t.string "ear_tip"
@@ -40,11 +40,12 @@ ActiveRecord::Schema[8.1].define(version: 2026_11_13_044227) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "nickname"
-    t.string "email"
+    t.string "email", null: false
     t.string "password_digest"
-    t.string "role"
+    t.string "role", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "reports", "towns"
