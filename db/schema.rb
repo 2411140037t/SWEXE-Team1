@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_11_13_025627) do
+ActiveRecord::Schema[8.1].define(version: 2026_11_13_043905) do
   create_table "reports", force: :cascade do |t|
     t.datetime "seen_at"
     t.string "ear_tip"
@@ -25,6 +25,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_11_13_025627) do
     t.string "reject_reason"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.integer "town_id", null: false
+    t.index ["town_id"], name: "index_reports_on_town_id"
+    t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
   create_table "towns", force: :cascade do |t|
@@ -42,4 +46,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_11_13_025627) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "reports", "towns"
+  add_foreign_key "reports", "users"
 end

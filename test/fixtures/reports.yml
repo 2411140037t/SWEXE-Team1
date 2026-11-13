@@ -1,6 +1,8 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  user: one
+  town: one
   seen_at: 2026-11-13 02:51:05
   ear_tip: MyString
   trouble: MyString
@@ -14,6 +16,8 @@ one:
   reject_reason: MyString
 
 two:
+  user: two
+  town: two
   seen_at: 2026-11-13 02:51:05
   ear_tip: MyString
   trouble: MyString
