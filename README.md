@@ -66,7 +66,7 @@ erDiagram
     int user_id FK "報告したユーザー"
     int town_id FK "報告された町"
     datetime seen_at "発見された日時"
-    string ear_tip "耳カットの有無 [yes, no, unknown]"
+    string ear_tip "耳カットの有無 [left, right, both, none, unknown]"
     string trouble "トラブル報告"
     text description "備考欄"
     string photo "写真（Active Storage）"
@@ -74,7 +74,7 @@ erDiagram
     float gps_longitude "端末によって報告された経度"
     float reported_latitude "ユーザーによって報告された緯度"
     float reported_longitude "ユーザーによって報告された軽度"
-    string status "承認ステータス [waiting, approve, deny]"
+    string status "承認ステータス [pending, approved, rejected]"
     string reject_reason "却下の場合のみ"
   }
 ```
