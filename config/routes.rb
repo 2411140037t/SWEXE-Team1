@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # Report
   get "report", to: "report#index", as: :reports # /report
   get "report/new", to: "report#new", as: :new_report # /report/new
-  post "report", to: "report#create" # /report
+  post "report", to: "report#create", as: :post_report # /report
   get "report/:id", to: "report#show", as: :report # /report/:id
   get "report/:id/edit", to: "report#edit", as: :edit_report # /report/:id/edit
   patch "report/:id", to: "report#update" # /report/:id
