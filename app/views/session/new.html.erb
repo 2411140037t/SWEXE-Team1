@@ -6,7 +6,7 @@
     <% end %>
 
     <%= form_with url: login_path, class: "flex flex-col gap-4 min-w-sm" do |form| %>
-      <%= render "shared/field", form:, attribute: :email, label: "メールアドレス", type: :email %>
+      <%= render "shared/field", form:, attribute: :email, label: "メールアドレス", type: :email, value: params[:email] %>
       <%= render "shared/field", form:, attribute: :password, label: "パスワード", type: :password %>
       <%= form.submit "ログイン", class: "transition rounded-md bg-primary px-4 py-2 font-medium text-white hover:bg-primary-hover cursor-pointer" %>
     <% end %>
