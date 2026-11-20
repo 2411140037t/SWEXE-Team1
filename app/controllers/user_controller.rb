@@ -1,9 +1,21 @@
 class UserController < ApplicationController
   def new
-    # TODO: ユーザー登録ページ
+    @user = User.new
   end
 
   def create
-    # TODO: ユーザー登録処理 (POST)
+    @user = User.new(
+      name: params[:user][:name],
+      nickname: params[:user][:nickname],
+      email: params[:user][:email],
+      password: params[:user][:password],
+      password_confirmation: params[:user][:password_confirmation]
+    )
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to reports_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 end

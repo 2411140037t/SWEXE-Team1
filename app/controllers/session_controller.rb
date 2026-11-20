@@ -1,13 +1,24 @@
 class SessionController < ApplicationController
   def new
-    # TODO: ログインページ
   end
 
   def create
-    # TODO: ログイン処理 (POST)
+    user = User.find_by(email: params[:email])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      if user.staff?
+        redirect_to staff_reports_path
+      else
+        redirect_to reports_path
+      end
+    else
+      flash.now[:alert] = "メールアドレスまたはパスワードが違います"
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
-    # TODO: ログアウト処理 (DELETE)
+    reset_session
+    redirect_to login_path, status: :see_other
   end
 end
