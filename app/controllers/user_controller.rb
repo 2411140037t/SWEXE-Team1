@@ -1,9 +1,19 @@
 class UserController < ApplicationController
+  before_action :redirect_if_logged_in
+
   def new
-    # TODO: ユーザー登録ページ
+    @user = User.new
   end
 
   def create
-    # TODO: ユーザー登録処理 (POST)
+    @user = User.new(params.expect(user: [:name, :nickname, :email, :password, :password_confirmation]))
+
+    if @user.save
+      reset_session
+      session[:user_id] = @user.id
+      redirect_to home_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 end

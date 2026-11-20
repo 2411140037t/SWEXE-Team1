@@ -1,4 +1,6 @@
 class ReportController < ApplicationController
+  before_action :require_login
+
   def index
     # TODO: ユーザーによる報告一覧ページ
   end

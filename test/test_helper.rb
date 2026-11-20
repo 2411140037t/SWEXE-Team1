@@ -13,3 +13,14 @@ module ActiveSupport
     # Add more helper methods to be used by all tests here...
   end
 end
+
+module SignInHelper
+  # fixtures のユーザーは全員パスワード "password" で作成している
+  def log_in_as(user, password: "password")
+    post login_url, params: { email: user.email, password: password }
+  end
+end
+
+class ActionDispatch::IntegrationTest
+  include SignInHelper
+end

@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: var(--color-taupe-400);
+  --color-primary-hover: var(--color-taupe-500);
+  --color-link: var(--color-blue-600);
+  --color-danger: var(--color-red-600);
+  --color-input: var(--color-gray-200);
+}
