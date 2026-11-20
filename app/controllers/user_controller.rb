@@ -16,7 +16,7 @@ class UserController < ApplicationController
     if @user.save
       reset_session
       session[:user_id] = @user.id
-      redirect_to reports_path
+      redirect_to home_path
     else
       render :new, status: :unprocessable_entity
     end
