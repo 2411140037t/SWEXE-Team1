@@ -6,13 +6,8 @@ class UserController < ApplicationController
   end
 
   def create
-    @user = User.new(
-      name: params[:user][:name],
-      nickname: params[:user][:nickname],
-      email: params[:user][:email],
-      password: params[:user][:password],
-      password_confirmation: params[:user][:password_confirmation]
-    )
+    @user = User.new(params.expect(user: [:name, :nickname, :email, :password, :password_confirmation]))
+
     if @user.save
       reset_session
       session[:user_id] = @user.id
