@@ -24,6 +24,11 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <header class="container mx-auto flex justify-end px-5 py-4">
+        <%= button_to "ログアウト", logout_path, method: :delete, class: "cursor-pointer text-sm text-link underline" %>
+      </header>
+    <% end %>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
