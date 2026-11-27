@@ -17,13 +17,18 @@ class Report < ApplicationRecord
   # - 新しく選ばれたタグは source 付きで追加
   # - そのまま残ったタグは、最初に付けた人の source を保つ
   def select_tags(tag_ids, source:)
-    selected_ids = Tag.where(id: Array(tag_ids).compact_blank).pluck(:id)
+    attached_ids = report_tags.map(&:tag_id)
+
+    # 新しく付けられるのは有効なタグだけ。すでに付いているタグは無効化されていても残せる
+    selected_ids = Tag.where(id: Array(tag_ids).compact_blank).filter_map do |tag|
+      tag.id if tag.active? || attached_ids.include?(tag.id)
+    end
 
     report_tags.each do |report_tag|
       report_tag.mark_for_destruction unless selected_ids.include?(report_tag.tag_id)
     end
 
-    (selected_ids - report_tags.map(&:tag_id)).each do |tag_id|
+    (selected_ids - attached_ids).each do |tag_id|
       report_tags.build(tag_id: tag_id, source: source)
     end
   end

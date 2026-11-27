@@ -49,4 +49,19 @@ class ReportTest < ActiveSupport::TestCase
     assert_equal [ "柄", "様子" ], grouped.keys
     assert_equal [ tags(:injured), tags(:thin) ], grouped["様子"]
   end
+
+  test "inactive tag cannot be newly added" do
+    @report.select_tags([ tags(:hidden).id ], source: "citizen")
+    assert @report.save
+    assert_empty @report.reload.tags
+  end
+
+  test "inactive tag already attached is kept when submitted" do
+    report = reports(:two)
+    report.report_tags.create!(tag: tags(:hidden), source: "citizen")
+
+    report.select_tags([ tags(:hidden).id ], source: "staff")
+    assert report.save
+    assert_equal [ tags(:hidden) ], report.reload.tags
+  end
 end
