@@ -1,2 +1,13 @@
-<h1>App#index</h1>
-<p>Find me in app/views/app/index.html.erb</p>
+<div class="grow flex flex-col-reverse lg:grid grid-cols-2">
+    <div class="grow w-full h-full bg-cover bg-center rounded-4xl" style="background-image: url('<%= image_path("top-cover.jpg") %>')"></div>
+    <div class="flex flex-col items-center justify-center gap-16 lg:gap-32 p-16">
+        <div class="flex flex-col items-center gap-2">
+            <h1>ねこあつめ (仮)</h1>
+            <span>ここにいい感じの文章</span>
+        </div>
+        <div class="flex flex-col items-center gap-4 max-w-64 w-full">
+            <%= link_to "ログイン", login_path, class: "btn-filled w-full" %>
+            <%= link_to "新規登録", signup_path, class: "btn-filled w-full" %>
+        </div>
+    </div>
+</div>
