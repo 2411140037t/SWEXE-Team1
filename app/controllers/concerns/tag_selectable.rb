@@ -11,11 +11,10 @@ module TagSelectable
   end
 
   def selected_tag_ids
-    return [] unless tag_choices_submitted?
+    choices = params[:tag_choices]
+    return [] unless choices.is_a?(ActionController::Parameters)
 
-    permitted = Tag::CATEGORY_LABELS.keys.map do |category|
-      Tag.single_choice?(category) ? category.to_sym : { category.to_sym => [] }
-    end
-    params.require(:tag_choices).permit(*permitted).to_h.values.flatten.compact_blank
+    categories = Tag::CATEGORY_LABELS.keys.map(&:to_sym)
+    choices.permit(*categories, categories.index_with { [] }).to_h.values.flatten.compact_blank
   end
 end
