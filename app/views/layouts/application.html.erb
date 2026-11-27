@@ -25,7 +25,7 @@
 
   <body class="min-h-screen container flex flex-col bg-(--color-bg) text-(--color-text) mx-auto pb-8">
       <header class="flex items-center px-5 py-4 w-full">
-          <a class="text-(--color-text) text-lg font-weight-500" href="/">ねこあつめ (仮)</a>
+          <a class="text-(--color-text) text-lg font-medium" href="/">ねこあつめ (仮)</a>
           <div class="grow"></div>
           <% if current_user %>
               <%= button_to "ログアウト", logout_path, method: :delete, class: "btn-regular" %>
