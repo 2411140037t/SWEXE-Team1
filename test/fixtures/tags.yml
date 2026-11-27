@@ -1,0 +1,32 @@
+kijitora:
+  category: pattern
+  name: キジトラ
+  color: "#8B6B4A"
+  position: 0
+
+chatora:
+  category: pattern
+  name: 茶トラ
+  color: "#E8913A"
+  position: 1
+
+kitten:
+  category: age
+  name: 子猫
+  position: 2
+
+injured:
+  category: condition
+  name: 怪我あり
+  position: 3
+
+thin:
+  category: condition
+  name: やせている
+  position: 4
+
+hidden:
+  category: pattern
+  name: 使わなくなった柄
+  position: 5
+  active: false

@@ -28,4 +28,33 @@ class Staff::ReportControllerTest < ActionDispatch::IntegrationTest
     get staff_report_url(reports(:one))
     assert_response :success
   end
+
+  test "staff should change tags" do
+    log_in_as(users(:two))
+    patch staff_report_url(reports(:one)), params: {
+      tag_choices: { pattern: tags(:chatora).id, condition: [ "", tags(:injured).id ] }
+    }
+
+    assert_redirected_to staff_report_url(reports(:one))
+    assert_equal [ tags(:chatora), tags(:injured) ].sort, reports(:one).reload.tags.sort
+  end
+
+  test "staff should remove all condition tags" do
+    reports(:one).report_tags.create!(tag: tags(:injured), source: "citizen")
+
+    log_in_as(users(:two))
+    patch staff_report_url(reports(:one)), params: {
+      tag_choices: { pattern: tags(:kijitora).id, condition: [ "" ] }
+    }
+
+    assert_equal [ tags(:kijitora) ], reports(:one).reload.tags
+  end
+
+  test "citizen should not change tags" do
+    log_in_as(users(:one))
+    patch staff_report_url(reports(:one)), params: { tag_choices: { pattern: tags(:chatora).id } }
+
+    assert_redirected_to login_url
+    assert_equal [ tags(:kijitora) ], reports(:one).reload.tags
+  end
 end
