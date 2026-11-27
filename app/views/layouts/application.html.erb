@@ -23,14 +23,18 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <% if current_user %>
-      <header class="container mx-auto flex justify-end px-5 py-4">
-        <%= button_to "ログアウト", logout_path, method: :delete, class: "cursor-pointer text-sm text-link underline" %>
+  <body class="min-h-screen container flex flex-col bg-(--color-bg) text-(--color-text) mx-auto pb-8">
+      <header class="flex items-center px-5 py-4 w-full">
+          <a class="text-(--color-text) text-lg font-medium" href="/">ねこあつめ (仮)</a>
+          <div class="grow"></div>
+          <% if current_user %>
+              <%= button_to "ログアウト", logout_path, method: :delete, class: "btn-regular" %>
+          <% else %>
+              <%= link_to "ログイン", login_path, class: "btn-regular" %>
+          <% end %>
       </header>
-    <% end %>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+      <main class="grow flex flex-col rounded-4xl bg-white w-full overflow-hidden">
+          <%= yield %>
+      </main>
   </body>
 </html>
