@@ -5,5 +5,29 @@
   --color-primary-hover: var(--color-taupe-500);
   --color-link: var(--color-blue-600);
   --color-danger: var(--color-red-600);
-  --color-input: var(--color-gray-200);
+  --color-input: var(--color-taupe-100);
+  --color-bg: var(--color-taupe-100);
+  --color-text: var(--color-taupe-800);
+}
+
+@layer base {
+  h1 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-bold);
+  }
+  h2 {
+    font-size: var(--text-xl);
+  }
+}
+
+@utility page-root {
+    @apply p-8 lg:p-12;
+}
+
+@utility btn-regular {
+	@apply transition rounded-xl bg-white text-(--color-text) cursor-pointer text-sm px-4 py-2 hover:bg-(--color-primary) hover:text-white text-center;
+}
+
+@utility btn-filled {
+	@apply transition rounded-xl bg-(--color-bg) text-(--color-text) cursor-pointer text-sm px-4 py-2 hover:bg-(--color-primary) hover:text-white text-center;
 }
